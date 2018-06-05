@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { LayoutService } from '../../services/layout.service';
 
 @Component({
   selector: 'app-songbook',
   template: `
     <mat-sidenav-container class="song-book-container">
 
-      <mat-sidenav opened="true" mode="side">
+      <mat-sidenav #menu [opened]="layout.menuOpened" [mode]="layout.menuMode" (click)="closeMenu()">
         <app-song-list></app-song-list>
       </mat-sidenav>
 
@@ -16,11 +17,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./songbook.component.scss']
 })
 export class SongbookComponent implements OnInit {
+  @ViewChild('menu') menu;
 
-  constructor() {
+  constructor(public layout: LayoutService) {
   }
 
   ngOnInit() {
+    this.layout.toggleMenu$.subscribe(() => {
+      this.menu.toggle();
+    });
+  }
+
+  closeMenu() {
+    if (!this.layout.menuOpened) {
+      this.menu.close();
+    }
   }
 
 }

@@ -1,10 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { LayoutService } from '../../services/layout.service';
 
 @Component({
   selector: 'app-header',
   template: `
     <div>
       <mat-toolbar color="primary" class="mat-elevation-z6">
+
+        <button *ngIf="layout.showMenuButton" mat-icon-button (click)="toggleMenu()">
+          <mat-icon>menu</mat-icon>
+        </button>
 
         <span routerLink="songbook">Song Book</span>
 
@@ -19,9 +24,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(public layout: LayoutService) { }
 
   ngOnInit() {
+  }
+
+  toggleMenu() {
+    this.layout.toggleMenu();
   }
 
 }
