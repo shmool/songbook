@@ -46,7 +46,7 @@ export class EditSongComponent implements OnInit {
 
   saveSong(song) {
     this.songsService.saveSong(song)
-      .then(res => this.router.navigate(['/', res.key]));
+      .then(res => this.router.navigate(['./', res.key]));
   }
 
 }

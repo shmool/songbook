@@ -45,7 +45,11 @@ export class AuthService {
 
   signIn() {
     this.enterPending();
-    this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
+    this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider())
+      .catch(err => {
+        console.error(err);
+        this.user$.next({ status: UserStatus.signedOut });
+      });
   }
 
   signOut() {

@@ -6,14 +6,14 @@ import { SongsService } from '../songs.service';
   template: `
     <mat-list>
       <mat-list-item>
-        <a [routerLink]="['/']">
+        <a [routerLink]="['./']">
           <button mat-mini-fab>
             <mat-icon>note_add</mat-icon>
           </button>
         </a>
       </mat-list-item>
       <mat-list-item *ngFor="let item of songList$ | async"
-                    [routerLink]="['/', item.id]"
+                    [routerLink]="['./', item.id]"
                     class="router-link">{{ item.title }}
       </mat-list-item>
     </mat-list>
