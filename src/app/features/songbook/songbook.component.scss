@@ -1,0 +1,12 @@
+$sidenav-width: 300px;
+
+.mat-sidenav-container.song-book-container {
+  height: 100%;
+
+  .mat-sidenav {
+    width: $sidenav-width;
+    overflow: auto;
+  }
+
+}
+
