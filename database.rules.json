@@ -1,0 +1,11 @@
+{
+  "rules": {
+    ".read": true,
+    "songs": {
+      "$song": {
+        ".read": true,
+        ".write": "auth != null && auth.provider != 'anonymous' && (!data.exists() || data.child('uid').val() === auth.uid)"
+      }
+    }
+  }
+}
