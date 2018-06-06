@@ -1,0 +1,66 @@
+{
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "resources": {
+        "files": [
+          "/favicon.ico",
+          "/index.html",
+          "/*.css",
+          "/*.js"
+        ]
+      }
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "resources": {
+        "files": [
+          "/assets/**"
+        ]
+      }
+    },
+    {
+      "name": "fonts",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "resources": {
+        "urls": [
+          "https://fonts.googleapis.com/**"
+        ]
+      }
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "songs",
+      "urls": [
+        "https://song-book-pwa.firebaseio.com/songs/**",
+        "https://song-book-not-pwa.firebaseio.com/songs/**"
+      ],
+      "cacheConfig": {
+        "maxSize": 50,
+        "maxAge": "100d",
+        "strategy": "performance"
+      }
+    },
+    {
+      "name": "songList",
+      "urls": [
+        "https://song-book-pwa.firebaseio.com/songList.*",
+        "https://song-book-not-pwa.firebaseio.com/songList.*"
+      ],
+      "cacheConfig": {
+        "maxSize": 1,
+        "maxAge": "1h",
+        "strategy": "freshness"
+      }
+    }
+  ],
+  "navigationUrls": [
+    "/songbook"
+  ]
+}
