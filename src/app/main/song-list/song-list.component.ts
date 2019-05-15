@@ -12,9 +12,9 @@ import { SongsService } from '../songs.service';
           </button>
         </a>
       </mat-list-item>
-      <mat-list-item *ngFor="let item of songList$"
+      <a mat-list-item *ngFor="let item of songList$"
                     class="router-link">{{ item.title }}
-      </mat-list-item>
+      </a>
     </mat-list>
   `,
   styleUrls: ['./song-list.component.scss']
