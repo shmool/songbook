@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
     <div>
       <mat-toolbar color="primary" class="mat-elevation-z6">
 
-        <span routerLink="songbook">Song Book</span>
+        <span>Song Book</span>
 
       </mat-toolbar>
     </div>
