@@ -6,14 +6,13 @@ import { SongsService } from '../songs.service';
   template: `
     <mat-list>
       <mat-list-item>
-        <a [routerLink]="['./']">
+        <a>
           <button mat-mini-fab>
             <mat-icon>note_add</mat-icon>
           </button>
         </a>
       </mat-list-item>
-      <mat-list-item *ngFor="let item of songList$ | async"
-                    [routerLink]="['./', item.id]"
+      <mat-list-item *ngFor="let item of songList$"
                     class="router-link">{{ item.title }}
       </mat-list-item>
     </mat-list>
@@ -21,13 +20,15 @@ import { SongsService } from '../songs.service';
   styleUrls: ['./song-list.component.scss']
 })
 export class SongListComponent implements OnInit {
-  songList$;
+  songList$ = [
+    {id: 1, title: 'Hello'},
+    {id: 2, title: 'World'}
+  ];
 
-  constructor(private songsService: SongsService) {
+  constructor() {
   }
 
   ngOnInit() {
-    this.songList$ = this.songsService.songList$;
   }
 
 }

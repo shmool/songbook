@@ -5,11 +5,13 @@ import { SongsService } from '../songs.service';
 @Component({
   selector: 'app-song',
   template: `
-    <div class="song" *ngIf="song$ | async as song">
+    <div class="song">
       <h2>{{ song.title }}</h2>
-      <a routerLink="edit"><button class="edit-btn" mat-mini-fab color="accent">
-        <mat-icon>edit</mat-icon>
-      </button></a>
+      <a>
+        <button class="edit-btn" mat-mini-fab color="accent">
+          <mat-icon>edit</mat-icon>
+        </button>
+      </a>
 
       <textarea class="lyrics" disabled>{{ song.lyrics }}</textarea>
     </div>
@@ -17,16 +19,12 @@ import { SongsService } from '../songs.service';
   styleUrls: ['./song.component.scss']
 })
 export class SongComponent implements OnInit {
-  song$;
+  song = { id: 1, title: 'Heal the World', performer: 'Michael Jackson', lyrics: 'Heal the world \n Make it a better place' };
 
-  constructor(private route: ActivatedRoute, private songsService: SongsService) {
+  constructor() {
   }
 
   ngOnInit() {
-    this.route.params.forEach(param => {
-      // asyncPipe unsubscribes from the previous reference
-      this.song$ = this.songsService.getSong(param.id);
-    });
   }
 
 }

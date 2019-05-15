@@ -8,15 +8,14 @@ import { SongComponent } from './song/song.component';
 import { SongListComponent } from './song-list/song-list.component';
 import { EditSongComponent } from './edit-song/edit-song.component';
 import { MaterialComponentsModule } from './material-components.module';
-import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [MainComponent, HeaderComponent, SongComponent, SongListComponent, EditSongComponent],
+  exports: [MainComponent],
   imports: [
     CommonModule,
     MainRoutingModule,
-    MaterialComponentsModule,
-    ReactiveFormsModule
+    MaterialComponentsModule
   ]
 })
 export class MainModule {
