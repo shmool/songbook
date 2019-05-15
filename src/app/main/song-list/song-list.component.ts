@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SongsService } from '../songs.service';
 
 @Component({
   selector: 'app-song-list',
@@ -9,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
           <mat-icon>note_add</mat-icon>
         </button>
       </a>
-      <a mat-list-item *ngFor="let item of songList$"
+      <a mat-list-item *ngFor="let item of songList$ | async"
          [routerLink]="item.id"
          class="router-link">{{ item.title }}
       </a>
@@ -18,15 +19,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./song-list.component.scss']
 })
 export class SongListComponent implements OnInit {
-  songList$ = [
-    { id: 1, title: 'Hello' },
-    { id: 2, title: 'World' }
-  ];
+  songList$;
 
-  constructor() {
+  constructor(private songsService: SongsService) {
   }
 
   ngOnInit() {
+    this.songList$ = this.songsService.songList$;
   }
 
 }
