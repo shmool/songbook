@@ -2,9 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  template: `
-    <app-header></app-header>
-
+  template: `    
     <div class="app-content">
       <router-outlet></router-outlet>
     </div>

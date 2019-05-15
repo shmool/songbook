@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-songbook',
+  selector: 'app-main',
   template: `
+    <app-header></app-header>
     <mat-sidenav-container class="song-book-container">
 
       <mat-sidenav opened="true" mode="side">
@@ -13,12 +14,11 @@ import { Component, OnInit } from '@angular/core';
 
     </mat-sidenav-container>
   `,
-  styleUrls: ['./songbook.component.scss']
+  styleUrls: ['./main.component.scss']
 })
-export class SongbookComponent implements OnInit {
+export class MainComponent implements OnInit {
 
-  constructor() {
-  }
+  constructor() { }
 
   ngOnInit() {
   }

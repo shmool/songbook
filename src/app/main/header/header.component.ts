@@ -8,10 +8,6 @@ import { Component, OnInit } from '@angular/core';
 
         <span routerLink="songbook">Song Book</span>
 
-        <span class="app-toolbar-filler"></span>
-
-        <app-user-status></app-user-status>
-
       </mat-toolbar>
     </div>
   `,
