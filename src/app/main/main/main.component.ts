@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
         <app-song-list></app-song-list>
       </mat-sidenav>
 
-      <app-song></app-song>
+      <router-outlet></router-outlet>
 
     </mat-sidenav-container>
   `,

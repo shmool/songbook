@@ -7,7 +7,7 @@ import { SongsService } from '../songs.service';
   template: `
     <div class="song">
       <h2>{{ song.title }}</h2>
-      <a>
+      <a routerLink="edit">
         <button class="edit-btn" mat-mini-fab color="accent">
           <mat-icon>edit</mat-icon>
         </button>

@@ -4,12 +4,13 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-song-list',
   template: `
     <mat-list>
-      <a mat-list-item>
+      <a mat-list-item routerLink="/">
         <button mat-mini-fab>
           <mat-icon>note_add</mat-icon>
         </button>
       </a>
       <a mat-list-item *ngFor="let item of songList$"
+         [routerLink]="item.id"
          class="router-link">{{ item.title }}
       </a>
     </mat-list>

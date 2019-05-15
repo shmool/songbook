@@ -11,7 +11,7 @@ import { MaterialComponentsModule } from './material-components.module';
 
 @NgModule({
   declarations: [MainComponent, HeaderComponent, SongComponent, SongListComponent, EditSongComponent],
-  exports: [MainComponent],
+  exports: [MainComponent], // no need for exports if the module is lazy loaded
   imports: [
     CommonModule,
     MainRoutingModule,
