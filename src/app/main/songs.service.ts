@@ -36,22 +36,23 @@ export class SongsService {
   }
 
   constructor(private http: HttpClient) {
+    this.nextSongList();
+  }
+
+  nextSongList() {
     this._songlist$.next(
       songs.map(song => ({ id: song.id, title: song.title })
       ));
   }
 
-  getSongList() {
-
-  }
-
   getSong(id) {
     const res = songs.find(song => song.id === +id);
-    console.log(res);
     return of(res);
   }
 
   saveSong(song) {
-
+    song.id = song.id || songs.length;
+    songs.push(song);
+    this.nextSongList();
   }
 }
