@@ -51,8 +51,14 @@ export class SongsService {
   }
 
   saveSong(song) {
-    song.id = song.id || songs.length;
-    songs.push(song);
-    this.nextSongList();
+    const newSong = !song.id;
+    if (newSong) {
+      song.id = songs.length + 1;
+      songs.push(song);
+      this.nextSongList();
+    } else {
+      const index = songs.findIndex(songInList => songInList.id === +song.id);
+      songs[index] = song;
+    }
   }
 }
